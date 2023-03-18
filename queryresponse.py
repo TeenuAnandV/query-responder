@@ -1,3 +1,5 @@
+# A simple query responder
+
 import random
 
 # Define a dictionary of queries and their corresponding responses
