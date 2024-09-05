@@ -28,3 +28,36 @@ print(get_response("Tell me a joke."))
 print(get_response("What is the meaning of life?"))
 print(get_response("What's the capital of France?"))
 
+
+
+# simple query responder with open AI(api key)
+
+import openai
+import random
+
+# Your OpenAI API key (replace with your actual API key)
+openai.api_key = 'YOUR_API_KEY_HERE'
+
+# Define a function that returns a response for a given query using OpenAI API
+def get_response(query):
+    try:
+        # Call the OpenAI API with the query
+        response = openai.Completion.create(
+            engine="text-davinci-003",  # You can choose different models
+            prompt=query,
+            max_tokens=150  # Adjust the response length as needed
+        )
+        # Extract the text response
+        answer = response.choices[0].text.strip()
+        return answer
+    except Exception as e:
+        return f"An error occurred: {e}"
+
+# Test the function with some queries
+print(get_response("What's your name?"))
+print(get_response("How are you doing?"))
+print(get_response("What's the weather like?"))
+print(get_response("Tell me a joke."))
+print(get_response("What is the meaning of life?"))
+print(get_response("What's the capital of France?"))
+
